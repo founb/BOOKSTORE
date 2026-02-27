@@ -1,0 +1,53 @@
+@if(authService.isAuthenticated()){
+  <div class="container text-center mt-4">
+  <h1 class="text-primary fw-bold mb-4">Digital Library Admin</h1>
+
+  <div class="d-flex justify-content-between align-items-end border-bottom">
+    <ul class="nav nav-tabs border-0">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="/books" routerLinkActive="active"  >Lista de Libros</a>
+
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/management" routerLinkActive="active">Gestión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contacto</a>
+      </li>
+    </ul>
+
+    <button class="btn btn-danger mb-2 px-4" (click)="authService.logout()" >Salir</button>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+}@else{
+  <router-outlet></router-outlet>
+}
+
+
+
+
+
+
+
+<!-- <div class="container py-5">
+  <h1 class="text-center mb-5 fw-bold text-primary">Digital Library Admin</h1>
+
+  <app-books-list [books]="books()" (onEdit)="selectToEdit($event)" (onDelete)="deleteBook($event)">
+  </app-books-list>
+
+  <div class="card-footer bg-light text-center py-2">
+    <small class="text-muted fw-bold">Total books: {{ totalBooks() }}</small>
+  </div>
+
+
+  <app-book-management [selected]="selectedBook()" (onAdd)="addBook()" (onUpdate)="updateBook()">
+  </app-book-management>
+  <app-contacto></app-contacto>
+
+
+</div> -->

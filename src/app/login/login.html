@@ -1,0 +1,9 @@
+<h2>Login</h2>
+
+<input type="text" placeholder="Usuario"(input)="username.set($any($event.target).value)">
+
+<input type="password" placeholder="Password" (input)="password.set($any($event.target).value)"> <button (click)="onLogin()">Entrar</button>
+@if (errorMessage()) {
+  
+  <p style="color:red">{{ errorMessage() }}</p>
+}

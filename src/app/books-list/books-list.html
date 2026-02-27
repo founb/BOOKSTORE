@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div class="table-responsive shadow-sm rounded">
+    <table class="table table-hover align-middle bg-white">
+      <thead class="table-dark">
+        <tr>
+          <th>Code</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Price</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (book of books(); track book.code) {
+          <tr>
+            <td><span class="badge bg-secondary">{{ book.code }}</span></td>
+            <td><strong>{{ book.title }}</strong></td>
+            <td class="text-muted">{{ book.author }}</td>
+            <td>{{ book.price }}€</td>
+            <td class="text-center">
+              <button class="btn btn-primary btn-sm me-2" (click)="onEdit.emit(book)">
+                Edit
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="onDelete.emit(book.code)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

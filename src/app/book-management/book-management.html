@@ -1,0 +1,38 @@
+<div class="container mt-5 mb-5">
+  <div class="card mx-auto shadow" style="max-width: 500px;">
+    <div class="card-header bg-light text-center py-3">
+      <h5 class="mb-0 text-secondary">Book Management Form</h5>
+    </div>
+    <div class="card-body p-4">
+      <div class="mb-3">
+        <label class="form-label fw-bold small">Code:</label>
+        <input type="number" class="form-control bg-light" [ngModel]="selected().code" readonly>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold small">Title:</label>
+        <input type="text" class="form-control" [(ngModel)]="selected().title">
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-7">
+          <label class="form-label fw-bold small">Author:</label>
+          <input type="text" class="form-control" [(ngModel)]="selected().author">
+        </div>
+        <div class="col-5">
+          <label class="form-label fw-bold small">Price (€):</label>
+          <input type="number" class="form-control" [(ngModel)]="selected().price">
+        </div>
+      </div>
+
+      <div class="d-flex gap-2">
+        <button class="btn btn-light border flex-grow-1 text-muted" (click)="onAdd.emit()">
+          Add New
+        </button>
+        <button class="btn btn-light border flex-grow-1 text-muted" (click)="onUpdate.emit()">
+          Save Changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
